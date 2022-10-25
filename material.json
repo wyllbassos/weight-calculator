@@ -1,0 +1,19 @@
+{
+  "material": [
+    {
+      "id": "0",
+      "name": "Aço",
+      "density": "7860"
+    },
+    {
+      "id": "1",
+      "name": "Alumínio",
+      "density": "7860"
+    },
+    {
+      "id": "2",
+      "name": "Plastico ABS",
+      "density": "7860"
+    }
+  ]
+}
