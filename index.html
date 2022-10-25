@@ -14,9 +14,6 @@
     h3 {
       margin-left: 32px;
     }
-    section {
-      display: flex;
-    }
     div {
       display: flex;
       flex-direction: column;
@@ -29,32 +26,29 @@
 
 <body>
   <h3>Calculadora de peso com base em volume e densidade de materiais</h1>
-    <section>
-      <div>
-        <span>Volume m³</span>
-        <input type="number" id="volumeM3Input" onchange="alteraVolume(this)" />
-      </div>
-      <div>
-        <span>Volume cm³</span>
-        <input type="number" id="volumeCm3Input" onchange="alteraVolume(this)" />
-      </div>
-      <div>
-        <span>Volume mm³</span>
-        <input type="number" id="volumeMm3Input" onchange="alteraVolume(this)" />
-      </div>
-    </section>
+    <div>
+      <span>Material</span>
+      <select id="materialSelect" onchange="alteraMaterial(this)">
+      </select>
+    </div>
+    
+    <div>
+      <span>Volume m³</span>
+      <input type="number" id="volumeM3Input" onchange="alteraVolume(this)" />
+    </div>
+    <div>
+      <span>Volume cm³</span>
+      <input type="number" id="volumeCm3Input" onchange="alteraVolume(this)" />
+    </div>
+    <div>
+      <span>Volume mm³</span>
+      <input type="number" id="volumeMm3Input" onchange="alteraVolume(this)" />
+    </div>
 
-    <section>
-      <div>
-        <span>Material</span>
-        <select id="materialSelect" onchange="alteraMaterial(this)">
-        </select>
-      </div>
-      <div>
-        <span>Peso kg</span>
-        <input type="number" id="pesoInput" onchange="alteraPeso(this)" />
-      </div>
-    </section>
+    <div>
+      <span>Peso kg</span>
+      <input type="number" id="pesoInput" onchange="alteraPeso(this)" />
+    </div>
 
     <script>
       const materiais = [
