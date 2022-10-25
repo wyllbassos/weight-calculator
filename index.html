@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcula Peso Metais</title>
+  <style>
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-top: 16px;
+      margin-left: 32px;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Calculadora de peso de metais com abse no volume e tipo de metal</h1>
+    <div>
+      <span>Volume m³</span>
+      <select name="material" id="material">
+        <option value="aco">Aço</option>
+        <option value="aluminio">Alumínio</option>
+        <option value="abs">Plastico ABS</option>
+      </select>
+    </div>
+    <div>
+      <span>Volume m³</span>
+      <input type="number" id="volumeM3Input" onchange="alteraVolume(this)" />
+    </div>
+    <div>
+      <span>Volume cm³</span>
+      <input type="number" id="volumeCm3Input" onchange="alteraVolume(this)" />
+    </div>
+    <div>
+      <span>Volume mm³</span>
+      <input type="number" id="volumeMm3Input" onchange="alteraVolume(this)" />
+    </div>
+    <div>
+      <span>Pesp kg</span>
+      <input type="number" id="pesoInput" onchange="alteraPeso(this)" />
+    </div>
+
+    <script>
+      const recalculaVolumes = volumeM3 => {
+        const volumeM3Element = document.getElementById("volumeM3Input");
+        const volumeCm3Element = document.getElementById("volumeCm3Input");
+        const volumeMm3Element = document.getElementById("volumeMm3Input");
+
+        const volumeCm3 = volumeM3 * 1000000;
+        const volumeMm3 = volumeM3 * 1000000000;
+
+        volumeM3Element.value = volumeM3;
+        volumeCm3Element.value = volumeCm3;
+        volumeMm3Element.value = volumeMm3;
+      }
+
+      const alteraVolume = element => {
+        const { id, value } = element;
+        const isNaN = Number.isNaN(Number(value));
+        let volumeM3 = Number(value);
+
+        if (isNaN) {
+          console.log('Numero inválido', value, element)
+          return;
+        }
+
+        if (id === 'volumeCm3Input') {
+          volumeM3 = volumeM3 / 1000000;
+        } else if (id === 'volumeMm3Input') {
+          volumeM3 = volumeM3 / 1000000000;
+        }
+
+        recalculaVolumes(volumeM3);
+      }
+
+      const alteraPeso = element => {
+        const { id, value } = element;
+        const isNaN = Number.isNaN(Number(value));
+        let volumeM3 = Number(value);
+
+        if (isNaN) {
+          console.log('Numero inválido', value, element)
+          return;
+        }
+
+        if (id === 'volumeCm3Input') {
+          volumeM3 = volumeM3 / 1000000;
+        } else if (id === 'volumeMm3Input') {
+          volumeM3 = volumeM3 / 1000000000;
+        }
+
+        recalculaVolumes(volumeM3);
+      }
+    </script>
+</body>
+
+</html>
